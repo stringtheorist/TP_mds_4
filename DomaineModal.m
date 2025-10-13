@@ -1,1 +1,4 @@
 function [n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C)
+	printf("ceci est un test");
+end
+
