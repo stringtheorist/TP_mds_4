@@ -9,7 +9,7 @@ clear;close all;clc;
 % Domaine modal
 [n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C);
 % Domaine spatial
-[ds,s,Ns]=DomaineSpatial(Lamb,L);
+[ds,s,Ns]=DomaineSpatial(Lamb,L,R);
 % Domaine temporel
 [dt,t,Nt,tmax]=DomaineTemporel(Per,L);
 % Rq : dans une phase de bebeugage, il faut que [Nt,Ns,Nw] aient des valeurs 
@@ -29,9 +29,9 @@ u=FctDeplacement(Y,T);
 
 %% ========================================================================
 %% VALORISATION ==========================================================
-Type=1;Illustration(Type,u,s,t)
-Type=2;Illustration(Type,u,s,t)
-Type=3;Illustration(Type,u,s,t)
+Type=1;Illustration(Type,u,s,t,Nt,L,H)
+Type=2;Illustration(Type,u,s,t,Nt,L,H)
+Type=3;Illustration(Type,u,s,t,Nt,L,H)
 % D'autres valorisations peuvent etre envisagees, quelques propostion
 % Film ?
 % Son ?
