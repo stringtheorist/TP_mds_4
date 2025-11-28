@@ -2,6 +2,7 @@
 %% INITIALISATION =========================================================
 clear;close all;clc;
 %% ========================================================================
+
 % Chargement des parametres
 [L,R,E,ro,Note,H,el,Nw,Aff]=ParamInit;
 % Parametres intermediaires
@@ -19,19 +20,19 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 %% ========================================================================
 %% ANALYSE MODALE =========================================================
 % Modes propres
-Y=ModePropre(kn,s,Nw,Aff);
+Y=ModePropre(kn,s,Nw,Aff(1));
 % Amplitude modale
-[an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff);
+[an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(1));
 % Fonction en temps
-T=FctTemporelle(Nw,wn,an,bn,t,Aff);
+T=FctTemporelle(Nw,wn,an,bn,t,Aff(1));
 % Deplacement
 u=FctDeplacement(Y,T);
 
 %% ========================================================================
 %% VALORISATION ==========================================================
 Type=1;Illustration(Type,u,s,t,Nt,L,H)
-% Type=2;Illustration(Type,u,s,t,Nt,L,H)
-% Type=3;Illustration(Type,u,s,t,Nt,L,H)
+%Type=2;Illustration(Type,u,s,t,Nt,L,H)
+%Type=3;Illustration(Type,u,s,t,Nt,L,H)
 % D'autres valorisations peuvent etre envisagees, quelques propostion
 % Film ?
 % Son ?

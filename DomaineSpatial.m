@@ -6,3 +6,7 @@ function [ds,s,Ns]=DomaineSpatial(Lamb,L,R)
 	Ns=length(s);   % Nombre de points d'échantillonages en espace
 
 
+
+
+
+    
