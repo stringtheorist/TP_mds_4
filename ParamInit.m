@@ -13,5 +13,5 @@ Note=440;       % Fréquence fondamentale [Hz]
 % Def=N0/(E*A);   % Deformation [~]
 el=L/6;         % Position de l'impact[m]
 Nw=10;
-Aff=1;
+Aff=[0,1,2,3,4,5];
 H=L/5;

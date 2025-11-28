@@ -7,3 +7,10 @@ for in=1:Nw
 end
 
 % T=an.*cos(wn.*t)+bn.*sin(wn.*t)./wn;
+
+%=> visualisation de T(t) pour quelques modes
+figure(7);
+plot(t,T([1:3 Nw],:),'LineWidth',2)
+xlabel('t [s]')
+legend('n=1','n=2','n=3','n=nmax')
+set(gca,'FontSize',24)

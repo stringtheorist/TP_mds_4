@@ -30,8 +30,8 @@ u=FctDeplacement(Y,T);
 %% ========================================================================
 %% VALORISATION ==========================================================
 Type=1;Illustration(Type,u,s,t,Nt,L,H)
-Type=2;Illustration(Type,u,s,t,Nt,L,H)
-Type=3;Illustration(Type,u,s,t,Nt,L,H)
+% Type=2;Illustration(Type,u,s,t,Nt,L,H)
+% Type=3;Illustration(Type,u,s,t,Nt,L,H)
 % D'autres valorisations peuvent etre envisagees, quelques propostion
 % Film ?
 % Son ?
