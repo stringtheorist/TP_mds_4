@@ -4,9 +4,13 @@ clear;close all;clc;
 %% ========================================================================
 
 % Chargement des parametres
-[L,R,E,ro,Note,H,el,Nw,Aff]=ParamInit;
+%[L,R,E,ro,Note,H,el,Nw,Aff]=ParamInit;
 % Parametres intermediaires
-[A,C,N0,Def]=ParamInter(R,L,ro,E,Note);
+%[A,C,N0,Def]=ParamInter(R,L,ro,E,Note);
+
+%typecorde = input('entrez parmis le choix suivant : \n-Corde de guitare en nylon \ncorde de guitare en acier \n-corde de piano grave \n- ');
+%Param globaux 
+[L,C,H,el,Nw,Aff,R] = Param(1);
 % Domaine modal
 [n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C);
 % Domaine spatial
@@ -20,8 +24,17 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 
 %% ========================================================================
 %% ANALYSE MODALE =========================================================
+
+%Pour l'affichage, Aff(1) renvoie vers la première valeur du tableau Aff,
+%soit 0. Ainsi, les fonctions appellées avec Aff(1) ne sont pas affichées,
+%les autres sont affichées à la figure n-1 pour aff(n) dans la fonction.
+
 % Modes propres
+<<<<<<< HEAD
+Y=ModePropre(kn,s,Nw,Aff(2));
+=======
 Y=ModePropre(kn,s,Aff(2));
+>>>>>>> main
 % Amplitude modale
 [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(3));
 % Fonction en temps

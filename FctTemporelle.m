@@ -4,7 +4,7 @@ for in=1:Nw
     T(in,:)=an(in)*cos(wn(in)*t)+bn(in)*sin(wn(in)*t)/wn(in);
 end
 if (Aff==0)
-    fprintf("pas d'affichage");
+    fprintf("pas d'affichage de la fonction temporelle \n");
 elseif (Aff>0)
     %=> visualisation de T(t) pour quelques modes
     figure(Aff);

@@ -3,7 +3,7 @@ function Y=ModePropre(kn,s,Aff)
 
 Nw=10;
 if (Aff==0)
-    fprintf("nooon mode propre no");
+    fprintf("pas d'affichage des modes propres \n");
     for in=1:Nw
         % Y_ij, avec i=>n et j=>s
         Y(in,:)=sin(kn(in)*s);
