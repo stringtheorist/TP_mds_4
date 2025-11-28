@@ -13,7 +13,7 @@ function Y=ModePropre(kn,s,Nw,Aff)
 % % legend('n=1','n=2','n=3','n=nmax')
 % % set(gca,'FontSize',24)
 if (Aff==0)
-    fprintf("nooon mode propre no");
+    fprintf("pas d'affichage des modes propres");
     for in=1:Nw
         % Y_ij, avec i=>n et j=>s
         Y(in,:)=sin(kn(in)*s);

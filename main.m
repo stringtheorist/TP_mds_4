@@ -19,6 +19,11 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 
 %% ========================================================================
 %% ANALYSE MODALE =========================================================
+
+%Pour l'affichage, Aff(1) renvoie vers la première valeur du tableau Aff,
+%soit 0. Ainsi, les fonctions appellées avec Aff(1) ne sont pas affichées,
+%les autres sont affichées à la figure n-1 pour aff(n) dans la fonction.
+
 % Modes propres
 Y=ModePropre(kn,s,Nw,Aff(1));
 % Amplitude modale
