@@ -1,5 +1,5 @@
 function [L,R,E,ro,Note,H,el,Nw,Aff]=ParamInit
-
+Aff=[0,1,2,3,4,5];
 L=1;            % Longueur [m]
 R=0.001;        % Rayon [m]
 % A=pi*R^2;       % Aire [m^2]
@@ -13,5 +13,4 @@ Note=440;       % Fréquence fondamentale [Hz]
 % Def=N0/(E*A);   % Deformation [~]
 el=L/6;         % Position de l'impact[m]
 Nw=10;
-Aff=1;
 H=L/5;

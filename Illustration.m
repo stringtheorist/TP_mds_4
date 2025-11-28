@@ -25,7 +25,7 @@ function Illustration(Type,u,s,t,Nt,L,H)
 	% end
 
 
-    figure(4);subplot(1,2,1)
+figure(4);subplot(1,2,1)
 plot(s,u(:,[1 10 20]),'LineWidth',2);
 xlabel('s [m]');ylabel('u(s,t) [m]');
 legend(['t=' num2str(t(1)) ],['t=' num2str(t(10)) ],['t=' num2str(t(20)) ])
