@@ -49,3 +49,4 @@ for j=1:Nt
     axis equal;axis([0,L,-H,H])
     set(gca,'FontSize',24);
     pause(0.1)
+end

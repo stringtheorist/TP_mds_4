@@ -12,7 +12,8 @@ clear;close all;clc;
 % Domaine spatial
 [ds,s,Ns]=DomaineSpatial(Lamb,L,R);
 % Domaine temporel
-[dt,t,Nt,tmax]=DomaineTemporel(Per,L);
+[t]=DomaineTemporel(Per,L);
+Nt=length(t);
 % Rq : dans une phase de bebeugage, il faut que [Nt,Ns,Nw] aient des valeurs 
 % raisonnables (<=1000) et si possible distinctes.
 disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
@@ -20,11 +21,11 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 %% ========================================================================
 %% ANALYSE MODALE =========================================================
 % Modes propres
-Y=ModePropre(kn,s,Nw,Aff(1));
+Y=ModePropre(kn,s,Aff(2));
 % Amplitude modale
-[an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(1));
+[an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(3));
 % Fonction en temps
-T=FctTemporelle(Nw,wn,an,bn,t,Aff(1));
+T=FctTemporelle(Nw,wn,an,bn,t,Aff(4));
 % Deplacement
 u=FctDeplacement(Y,T);
 
