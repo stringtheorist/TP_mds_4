@@ -14,6 +14,10 @@ function Y=ModePropre(kn,s,Nw,Aff)
 % % set(gca,'FontSize',24)
 if (Aff==0)
     fprintf("nooon mode propre no");
+    for in=1:Nw
+        % Y_ij, avec i=>n et j=>s
+        Y(in,:)=sin(kn(in)*s);
+    end
 
 elseif (Aff>0)
     for in=1:Nw
