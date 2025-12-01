@@ -1,7 +1,5 @@
-function Y=ModePropre(kn,s,Aff)
-% % Modes propres
-
-Nw=10;
+function [Y]=ModePropre(kn,s,Aff,Nw)
+% Modes propres
 if (Aff==0)
     fprintf("pas d'affichage des modes propres \n");
     for in=1:Nw

@@ -10,14 +10,14 @@ clear;close all;clc;
 
 %typecorde = input('entrez parmis le choix suivant : \n-Corde de guitare en nylon \ncorde de guitare en acier \n-corde de piano grave \n- ');
 %Param globaux 
-[L,C,H,el,Nw,Aff,R] = Param(1);
+typecorde=1;
+[L,C,H,el,Nw,Aff,R] = Param(typecorde);
 % Domaine modal
 [n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C);
 % Domaine spatial
-[ds,s,Ns]=DomaineSpatial(Lamb,L,R);
+[ds,s,Ns]=DomaineSpatial(Lamb,L);
 % Domaine temporel
-[t]=DomaineTemporel(Per,L);
-Nt=length(t);
+[t,Nt]=DomaineTemporel(Per);
 % Rq : dans une phase de bebeugage, il faut que [Nt,Ns,Nw] aient des valeurs 
 % raisonnables (<=1000) et si possible distinctes.
 disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
@@ -31,7 +31,7 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 
 % Modes propres
 %Y=ModePropre(kn,s,Nw,Aff(2));
-Y=ModePropre(kn,s,Aff(2));
+Y=ModePropre(kn,s,Aff(2),Nw);
 % Amplitude modale
 [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(3));
 % Fonction en temps
@@ -39,12 +39,13 @@ T=FctTemporelle(Nw,wn,an,bn,t,Aff(4));
 % Deplacement
 u=FctDeplacement(Y,T);
 
+Son(u,t,typecorde);
 %% ========================================================================
 %% VALORISATION ==========================================================
 Type=1;Illustration(Type,u,s,t,Nt,L,H)
+
 %Type=2;Illustration(Type,u,s,t,Nt,L,H)
 %Type=3;Illustration(Type,u,s,t,Nt,L,H)
 % D'autres valorisations peuvent etre envisagees, quelques propostion
 % Film ?
-% Son ?
 % Autre ?
