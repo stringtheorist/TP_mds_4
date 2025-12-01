@@ -30,11 +30,8 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 %les autres sont affichées à la figure n-1 pour aff(n) dans la fonction.
 
 % Modes propres
-<<<<<<< HEAD
-Y=ModePropre(kn,s,Nw,Aff(2));
-=======
+%Y=ModePropre(kn,s,Nw,Aff(2));
 Y=ModePropre(kn,s,Aff(2));
->>>>>>> main
 % Amplitude modale
 [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(3));
 % Fonction en temps
