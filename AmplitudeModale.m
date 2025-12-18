@@ -1,7 +1,7 @@
 function [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff)
 % Amplitude modale
-an=2*H./(n*pi)*L/(L-el).*sin(kn*el)./(kn*el);
-bn=zeros(size(n));
+an = 2*H ./ (kn*L) * L/(L-el) .* sin(kn*el)./(kn*el);
+bn = zeros(size(n));
 %=> visualisation des amplitudes modales an
 if (Aff==0)
     fprintf("pas d'affichage de l'amplitude modale \n");

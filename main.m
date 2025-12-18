@@ -10,10 +10,14 @@ clear;close all;clc;
 
 %typecorde = input('entrez parmis le choix suivant : \n-Corde de guitare en nylon \ncorde de guitare en acier \n-corde de piano grave \n- ');
 %Param globaux 
-typecorde=1;
-[L,C,H,el,Nw,Aff,R] = Param(typecorde);
+typecorde=2;
+TypeCL=2;
+% 1 = Fixé-Fixé (Guitare/Harpe standard)
+% 2 = Fixé-Libre (Dirichlet-Neumann)
+[L,C,H,el,Nw,Aff,R,N0] = Param(typecorde);
+N0
 % Domaine modal
-[n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C);
+[n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C,TypeCL);
 % Domaine spatial
 [ds,s,Ns]=DomaineSpatial(Lamb,L);
 % Domaine temporel
@@ -31,7 +35,7 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 
 % Modes propres
 %Y=ModePropre(kn,s,Nw,Aff(2));
-Y=ModePropre(kn,s,Aff(2),Nw);
+Y=ModePropre(kn,s,Aff(9),Nw);
 % Amplitude modale
 [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(3));
 % Fonction en temps
