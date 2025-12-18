@@ -1,6 +1,8 @@
-function Illustration(Type,u,s,t,Nt,L,H)
-
-
+function Illustration(Type,u,s,t,Nt,L,H,graph)
+if (graph < 2)
+    fprintf("pas d'affichage des animations \n");
+    return;
+end
 figure(4);subplot(1,2,1)
 plot(s,u(:,[1 10 20]),'LineWidth',2);
 xlabel('s [m]');ylabel('u(s,t) [m]');

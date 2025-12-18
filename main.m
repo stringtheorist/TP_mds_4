@@ -3,19 +3,27 @@
 clear;close all;clc;
 %% ========================================================================
 
-% Chargement des parametres
-%[L,R,E,ro,Note,H,el,Nw,Aff]=ParamInit;
-% Parametres intermediaires
-%[A,C,N0,Def]=ParamInter(R,L,ro,E,Note);
 
-%typecorde = input('entrez parmis le choix suivant : \n-Corde de guitare en nylon \ncorde de guitare en acier \n-corde de piano grave \n- ');
-%Param globaux 
-typecorde=2;
-TypeCL=2;
-% 1 = Fixé-Fixé (Guitare/Harpe standard)
-% 2 = Fixé-Libre (Dirichlet-Neumann)
+typecorde = input('Choisissez le type de corde \n0 - entrez vos propres paramètres R/E/ro/note \n1 - Harpe (Boyau)\n2 - Guitare (Nylon)\n3 - Piano (Acier)\nVotre choix (0, 1, 2 ou 3) : \n');
+TypeCL = input('Choissez vos CL \n1 - Fixé-Fixé \n2 - Fixé-Libre : \n\n'); 
+disp('Le type de corde ne change pas les courbes/son !! Voir le compte-rendu pour plus de détail...');
+
+%paramètres
 [L,C,H,el,Nw,Aff,R,N0] = Param(typecorde);
-N0
+fprintf('Tension calculée N0 = %.2f N \n', N0);
+
+fprintf('\nMenu affichage\n');
+fprintf('0 - rien\n');
+fprintf('1 - juste analyse modale (Modes, Amplitudes, Temps)\n');
+fprintf('2 - juste animation (Film du mouvement de la corde)\n');
+fprintf('3 - Tout\n');
+
+graph = input('Choisissez (0, 1, 2, 3) : ');
+
+% Gestion de 'Aff' (Figures 1, 2, 3 : Intermédiaires)
+if graph == 0 || graph == 2
+    Aff = zeros(size(Aff)); 
+end
 % Domaine modal
 [n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C,TypeCL);
 % Domaine spatial
@@ -35,7 +43,7 @@ disp(['[Nt,Ns,Nw]=[' num2str([Nt,Ns,Nw]) ']'])
 
 % Modes propres
 %Y=ModePropre(kn,s,Nw,Aff(2));
-Y=ModePropre(kn,s,Aff(9),Nw);
+Y=ModePropre(kn,s,Aff(2),Nw);
 % Amplitude modale
 [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff(3));
 % Fonction en temps
@@ -46,7 +54,7 @@ u=FctDeplacement(Y,T);
 Son(u,t,typecorde);
 %% ========================================================================
 %% VALORISATION ==========================================================
-Type=1;Illustration(Type,u,s,t,Nt,L,H)
+Type=1;Illustration(Type,u,s,t,Nt,L,H,graph)
 
 %Type=2;Illustration(Type,u,s,t,Nt,L,H)
 %Type=3;Illustration(Type,u,s,t,Nt,L,H)
