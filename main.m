@@ -28,7 +28,7 @@ graph = input('Choisissez (0, 1, 2, 3) : ');
 
 
 fprintf('\nLa tension calculée est N0 = %.2f N \n', N0);
-disp('Le type de corde ne change pas les courbes/son !! Voir le compte-rendu pour plus de détail...');
+fprintf('\nLe type de corde ne change pas les courbes/son !! Voir le compte-rendu pour plus de détail...\n\n');
 
 % Gestion de 'Aff' (Figures 1, 2, 3 : Intermédiaires)
 if graph == 0 || graph == 2
@@ -65,9 +65,3 @@ Son(u,t,typecorde);
 %% ========================================================================
 %% VALORISATION ==========================================================
 Type=1;Illustration(Type,u,s,t,Nt,L,H,graph)
-
-%Type=2;Illustration(Type,u,s,t,Nt,L,H)
-%Type=3;Illustration(Type,u,s,t,Nt,L,H)
-% D'autres valorisations peuvent etre envisagees, quelques propostion
-% Film ?
-% Autre ?
