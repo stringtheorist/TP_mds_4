@@ -11,7 +11,7 @@ TypeCL = input('Choissez vos CL \n1 - Fixé-Fixé \n2 - Fixé-Libre : \n\n');
 Excitation = input('Choisissez le type d excitation : \n1 - Pincée \n2 - Frappée \n\n');
 V=0;
 if Excitation == 2
-    V=input('Vous avez choisis corde frapée. Choisissez donc la vitesse, en m/s :\n\n');
+    V=input('Vous avez choisis corde frapée. Choisissez la vitesse, en m/s :\n\n');
 end
 %paramètres
 [L,C,H,el,Nw,Aff,R,N0] = Param(typecorde);
@@ -19,10 +19,7 @@ end
 %interaction utilisateur pour affichage
 
 fprintf('\nChoix affichage\n');
-fprintf('0 - rien\n');
-fprintf('1 - juste analyse modale (Modes, Amplitudes, Temps)\n');
-fprintf('2 - juste animation (Film du mouvement de la corde)\n');
-fprintf('3 - Tout\n');
+fprintf('0 - rien\n1 - juste analyse modale (Modes, Amplitudes, Temps)\n2 - juste animation (Film du mouvement de la corde)\n3 - Tout\n');
 
 graph = input('Choisissez (0, 1, 2, 3) : ');
 
