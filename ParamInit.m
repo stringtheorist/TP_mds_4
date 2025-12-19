@@ -1,7 +1,7 @@
 function [L,R,E,ro,Note,H,el,Nw,Aff]=ParamInit(typecorde)
 Aff=[0,1,2,3,4,5,6,7,8,9];
 L=1;            % Longueur [m]
-el = L/6;          % Position de l'impact[m]
+el = L/6;          % Position de l'impact[m], on frappe ou pince la corde à environ 16.7cm du bout de la corde, pour une courbe d'un mètre.
 Nw = 10;% Indices modaux
 H = L/5;% Hauteur [m]
 
