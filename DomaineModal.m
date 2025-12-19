@@ -3,10 +3,9 @@ function [n,kn,wn,Lamb,Per,Freq]=DomaineModal(Nw,L,C,TypeCL)
     n=(1:Nw)';    % Indices modaux
     if (TypeCL == 1)
         % fixe fixe
-        kn = n*pi/L; % Nombres d'ondes [1/m] : corde fixee aux deux extremites
+        kn = n*pi/L; 
     elseif (TypeCL == 2)
-        % Fixé-Libre / Dirichlet-Neumann
-        % Les modes = (n - 0.5) * pi / L
+        % fixe libre
         kn = (n - 0.5)*pi/L;
     end
     wn=C*kn;        % Pulsation [rad/s], relation de dispersion
