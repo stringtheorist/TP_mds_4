@@ -1,7 +1,13 @@
-function [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff)
+function [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff,Excitation,V)
 % Amplitude modale
-an = 2*H ./ (kn*L) * L/(L-el) .* sin(kn*el)./(kn*el);
+if Excitation == 1 %corde pincée
+an = 2*H ./ (kn*L) * L/(L-el) .* sin(kn*el)./(kn*el); %On a remplacer (n*pi) par (kn*L), voir rapport.
 bn = zeros(size(n));
+
+elseif Excitation == 2 %corde frapée, voir rapport aussi. 
+an = zeros(size(n));
+bn = 2*V ./ L .* sin(kn*el);
+end
 %=> visualisation des amplitudes modales an
 if (Aff==0)
     fprintf("pas d'affichage de l'amplitude modale \n");
