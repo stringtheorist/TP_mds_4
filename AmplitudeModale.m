@@ -1,10 +1,10 @@
 function [an,bn]=AmplitudeModale(L,el,kn,wn,n,H,Aff,Excitation,V)
-% Amplitude modale
+% Amplitude modale, voir rapport pour les détails.
 if Excitation == 1 %corde pincée
-an = 2*H ./ (kn*L) * L/(L-el) .* sin(kn*el)./(kn*el); %On a remplacer (n*pi) par (kn*L), voir rapport.
+an = 2*H ./ (kn*L) * L/(L-el) .* sin(kn*el)./(kn*el); 
 bn = zeros(size(n));
 
-elseif Excitation == 2 %corde frapée, voir rapport aussi. 
+elseif Excitation == 2 %corde frapée
 an = zeros(size(n));
 bn = 2*V ./ L .* sin(kn*el);
 end
